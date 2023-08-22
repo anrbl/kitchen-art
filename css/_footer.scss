@@ -1,0 +1,39 @@
+.footer {
+    padding: 70px 0 80px 0;
+    background: $c-3;
+
+    .ft {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin: 0 0 64px 0;
+
+        h2 {
+            width: 200px;
+        }
+    }
+
+    .fb {
+        display: flex;
+        justify-content: space-between;
+
+        address {
+            font-size: 14px;
+            color: $c-9;
+        }
+
+        .foot_sns {
+            display: flex;
+            gap: 8px;
+        }
+    }
+}
+
+
+.side {
+    .top {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+    }
+}
