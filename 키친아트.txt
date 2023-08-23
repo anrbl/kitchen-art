@@ -139,32 +139,3 @@ Copyright © 2023 KITCHENART CORP. All rights reserved.
 
 
 
-
-
-        .num {
-            display: flex;
-            justify-content: space-between;
-            gap: 24px;
-            text-align: center;
-
-            li {
-                flex: 1;
-                padding: 32px;
-                border-radius: 8px;
-                background: $c-w;
-                border: 1px solid $c-line;
-            }
-
-            span {
-                display: block;
-                font-size: 16px;
-                font-weight: 300;
-                margin: 0 0 6px 0;
-            }
-
-            strong {
-                font-size: 32px;
-                font-weight: 700;
-                color: $c-main;
-            }
-        }
