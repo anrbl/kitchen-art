@@ -33,6 +33,7 @@
         bottom: 80px;
         left: 50%;
         transform: translate(-50%, 0);
+        width: 100%;
         text-align: center;
 
         h3 {
@@ -54,34 +55,26 @@
 
     .arrows {
         position: absolute;
-        bottom: 200px;
-        left: 50%;
-        transform: translate(-50%, 0);
+        top: 50%;
+        right: 40px;
+        transform: translate(0, -50%);
+
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
 
         span {
             display: block;
             font-size: 32px;
             color: $c-w;
-            padding: 32px;
-            border: 1px solid $c-line;
+            padding: 16px;
+            border: 2px solid rgba($color: $c-w, $alpha: 0.5);
             border-radius: 50%;
             user-select: none;
             cursor: pointer;
         }
 
-        .left {
-            position: absolute;
-            top: 0;
-            left: 0;
-            margin: 0 0 0 700px;
-        }
 
-        .right {
-            position: absolute;
-            top: 0;
-            left: 0;
-            margin: 0 0 0 -700px;
-        }
     }
 
     &::after {
@@ -105,22 +98,29 @@
         }
 
         .slogan {
+            h3 {
+                font-size: 48px;
+            }
+
             p {
                 letter-spacing: 1px;
             }
         }
 
         .arrows {
+            top: auto;
             bottom: 150px;
+            right: 50%;
             width: calc(100% - 48px);
+            transform: translate(50%, 0);
 
             span {
                 display: block;
                 font-size: 24px;
                 color: $c-w;
-                padding: 12px;
-                border: 1px solid $c-line;
-                border-radius: 50%;
+                padding: 8px;
+                border: none;
+                border-radius: 0;
                 user-select: none;
                 cursor: pointer;
             }
@@ -891,7 +891,7 @@
 
         .sns_feed {
             grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
+            gap: 16px;
         }
 
         .need_help {

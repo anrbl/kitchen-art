@@ -7,7 +7,7 @@
     z-index: 1000;
 
     background: linear-gradient(rgba($color: $c-b, $alpha: 0.5) 0%, rgba($color: $c-b, $alpha: 0)90%);
-    transition: 0.5s;
+    transition: 0.3s;
 
     .head_wrap {
         display: flex;
@@ -26,10 +26,81 @@
             gap: 40px;
 
             &>li {
-                a {
+                position: relative;
+
+                &>a {
+                    display: block;
                     font-size: 16px;
                     font-weight: 500;
+                    line-height: 80px;
                     color: $c-w;
+
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 24px;
+                        right: -8px;
+                        z-index: 1000;
+
+                        width: 4px;
+                        height: 4px;
+                        border-radius: 50%;
+                        background: $c-main;
+                        opacity: 0;
+                        transition: 0.3s;
+                    }
+
+                }
+
+                .sub_menu {
+                    position: absolute;
+                    top: 80px;
+                    left: 50%;
+                    transform: translate(-50%, 10px);
+
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: 0.3s;
+
+                    &>li {
+
+                        &>a {
+                            display: block;
+                            line-height: 40px;
+                            text-align: center;
+                            white-space: nowrap;
+                            width: 150px;
+                            background: $c-w;
+                            border: 1px solid $c-line;
+                            transition: 0.3s;
+                        }
+
+                        &:not(:first-child) {
+                            border-top: none;
+                        }
+
+                        &:hover {
+                            &>a {
+                                color: $c-main;
+                            }
+                        }
+                    }
+                }
+
+                &:hover {
+                    a {
+                        &::after {
+                            opacity: 1;
+                        }
+                    }
+
+                    .sub_menu {
+
+                        transform: translate(-50%, 0);
+                        visibility: visible;
+                        opacity: 1;
+                    }
                 }
             }
         }
@@ -84,19 +155,127 @@
 
 @media (max-width:768px) {
     .header {
+        .head_wrap {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: -100vh 0 0 0;
+                z-index: -1;
+                height: 0;
+                background: rgba($color: $c-b, $alpha: 0.3);
+                backdrop-filter: blur(5px);
+            }
+
+            h1 {
+                width: 200px;
+            }
+
+            &.on {
+                background: $c-w;
+
+                &::before {
+                    inset: 0 0 0 0;
+                    height: 100vh;
+                    transition: 0.5s;
+                }
+            }
+        }
+
         .gnb {
-            display: none;
+            position: absolute;
+            top: -480px;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            height: 480px;
+            background: $c-wb;
+
+            &>ul {
+                position: relative;
+                flex-direction: column;
+                gap: 0px;
+                padding: 100px 24px 0;
+
+                &>li {
+                    &>a {
+                        font-size: 18px;
+                        font-weight: 600;
+                        text-align: center;
+                        line-height: 48px;
+                        border-bottom: 1px solid rgba($color: $c-b, $alpha: 0.1);
+
+                        &::after {
+                            display: none;
+                        }
+
+                    }
+
+                    .sub_menu {
+                        position: static;
+                        top: 0;
+                        left: 0;
+                        transform: translate(0, 0);
+                        visibility: visible;
+                        opacity: 1;
+                        transition: 0s;
+                        display: none;
+
+                        &>li {
+                            position: relative;
+
+                            &>a {
+                                font-size: 14px;
+                                line-height: 40px;
+                                width: 100%;
+                                // text-align: left;
+                                background: $c-w;
+                                border: none;
+                                transition: 0s;
+                                color: $c-6;
+                            }
+
+                            &:not(:first-child) {
+                                &>a {
+                                    border-top: 1px solid $c-line;
+                                }
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        .sub_menu {
+                            transform: translate(0, 0);
+                        }
+                    }
+                }
+
+            }
+
+            &.on {
+                top: 0;
+                transition: 0.5s;
+            }
         }
 
         .mopen {
             position: absolute;
             top: 24px;
             right: 15px;
+            z-index: 999;
             display: block;
 
             span {
                 font-size: 32px;
                 color: $c-w;
+                transition: 0.3s;
+            }
+
+            &.on {
+                span {
+                    color: $c-main;
+                }
             }
         }
 
@@ -104,6 +283,12 @@
             .mopen {
                 span {
                     color: $c-b;
+                }
+
+                &.on {
+                    span {
+                        color: $c-main;
+                    }
                 }
             }
         }
