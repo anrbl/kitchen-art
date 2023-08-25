@@ -9,7 +9,7 @@ $(function () {
         arrows: false,
         fade: true,
         autoplay: true,
-        autoplaySpeed: 4000,
+        autoplaySpeed: 3000,
         pauseOnFocus: false,
     });
     $('.arrows .left').on('click', function () {
@@ -25,6 +25,8 @@ $(function () {
         $('.brand_set>li').eq(idx).addClass('on').siblings().removeClass('on');
         $('.brand_story>li').eq(idx).addClass('on').siblings().removeClass('on');
     });
+
+
 
     $(window).scroll(function () {
         let top = $(window).scrollTop();
