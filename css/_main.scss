@@ -4,8 +4,8 @@
     .main_slide {
         .itm {
             position: relative;
-            height: 730px;
-            clip-path: ellipse(120% 100% at 50% 0%);
+            height: 700px;
+            clip-path: ellipse(150% 100% at 50% 0%);
 
             &.itm01 {
                 background: url(../images/mainvisual02.jpg) no-repeat center center/cover;
@@ -186,16 +186,17 @@
     .company {
         position: relative;
         display: grid;
-        grid-template-columns: 280px 1fr;
-        margin: 0 0 24px;
+        grid-template-columns: 1fr 3fr;
+        align-items: center;
+        margin: 0 0 24px 0;
 
         .com_left {
+
             ul {
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                align-items: flex-end;
                 gap: 12px;
-                padding: 16px 0;
 
                 li {
                     display: flex;
@@ -203,9 +204,9 @@
                     gap: 10px;
 
                     padding: 16px 24px;
-                    width: 350px;
                     text-align: left;
                     background: $c-wb;
+                    width: 240px;
 
                     font-size: 18px;
                     font-weight: 300;
@@ -216,6 +217,14 @@
                         font-size: 14px;
                         font-weight: 700;
                         color: $c-main;
+                    }
+
+                    &.on {
+                        background: $c-main;
+                        color: $c-w;
+                        font-weight: 700;
+                        width: 300px;
+
                     }
                 }
             }
@@ -243,7 +252,7 @@
         li {
             position: relative;
             padding: 32px 32px 88px;
-            border: 1px solid $c-line;
+            border: 1px solid rgba($color: $c-s1, $alpha: 0.5);
             border-radius: 8px;
             background: $c-w;
 
@@ -294,6 +303,111 @@
     }
 }
 
+@media (max-width:768px) {
+    .main_company {
+        .content {
+            .tit {
+                margin: 0 0 40px 0;
+
+                strong {
+                    font-size: 56px;
+
+                    &::after {
+                        top: 6px;
+                        left: calc(50% - 32px);
+                        width: 10px;
+                        height: 10px;
+                    }
+                }
+            }
+        }
+
+        .company {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            margin: 0 0 16px 0;
+
+            .com_left {
+                order: 2;
+
+                ul {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    align-items: start;
+                    gap: 8px;
+
+                    li {
+                        display: flex;
+                        gap: 10px;
+
+                        padding: 16px 24px;
+                        text-align: center;
+                        background: $c-w;
+                        width: 100%;
+
+                        font-size: 16px;
+                        font-weight: 300;
+                        border-radius: 4px;
+
+                        border: 1px solid rgba($color: $c-main, $alpha: 0.3);
+
+                        span {
+                            display: inline-block;
+                            font-size: 14px;
+                        }
+
+                        &.on {
+                            justify-content: center;
+                            grid-column: 1 / span 2;
+                            text-align: center;
+                            width: 100%;
+
+                        }
+                    }
+                }
+            }
+
+            .com_right {
+                margin: 0 0 16px 0;
+            }
+        }
+
+        .company_txt {
+            grid-template-columns: repeat(1, 1fr);
+
+            li {
+                padding: 24px 24px 32px 24px;
+
+                &:not(.txt_tit) {
+                    &::before {
+                        top: 18px;
+                        left: 18px;
+                    }
+                }
+
+                strong {
+                    font-size: 20px;
+                    font-weight: 700;
+                    margin: 0 0 16px 0;
+                }
+
+                &.txt_tit {
+                    font-size: 18px;
+                    background: $c-sub;
+                    color: $c-g;
+
+                    strong {
+                        font-size: 32px;
+                        margin: 0 0 8px 0;
+                        color: $c-w;
+                    }
+                }
+            }
+        }
+    }
+}
 
 .main_information {
     .info_con {
@@ -745,11 +859,9 @@
                 position: relative;
                 display: block;
                 overflow: hidden;
+                border-radius: 8px;
 
                 .img_box {
-                    overflow: hidden;
-                    border-radius: 8px;
-
                     img {
                         height: 350px;
                         object-fit: cover;
@@ -766,9 +878,6 @@
                     padding: 30px 0;
                     background: $c-wb;
                     clip-path: ellipse(100% 100% at 50% 100%);
-                    box-shadow: 0 0 10px rgba($color: $c-b, $alpha: 0.3);
-
-                    border-radius: 0 0 8px 8px;
 
                     strong {
                         display: block;
